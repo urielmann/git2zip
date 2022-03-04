@@ -23,6 +23,19 @@
                 "--num-commits", "2",
                 "--archive", "D:/play/git2zip.zip",
             ]
+        },
+        {
+            "name": "Python: git2zip test (with prompts)",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/git2zip.py",
+            "console": "integratedTerminal",
+            // "args": [
+            //     "--repository", "D:/play/git2zip",
+            //     "--branch", "master",
+            //     "--num-commits", "2",
+            //     "--archive", "D:/play/git2zip.zip",
+            // ]
         }
     ]
 }

@@ -21,10 +21,10 @@ import click
 import zipfile
 
 @click.command()
-@click.option('--repository', default='.', help='Repository path')
-@click.option('--branch', default='main', help='Branch name')
-@click.option('--num-commits', default=1, help='Number of commits to archiive')
-@click.option('--archive', default='backup.zip', help='Path to .zip (archive) file')
+@click.option('-r', '--repository', default='.', help='Repository path', prompt=True)
+@click.option('-b', '--branch', default='main', help='Branch name', prompt=True)
+@click.option('-c', '--commits', default=1, help='Number of commits to archiive', prompt=True)
+@click.option('-a', '--archive', default='backup.zip', help='Path to .zip (archive) file', prompt=True)
 def main(repository, branch, num_commits, archive):
     repo = git.Repo(path=repository, search_parent_directories=True)
     # get all of the commits on the branch
