@@ -12,16 +12,16 @@
             "console": "integratedTerminal"
         },
         {
-            "name": "Python: zip",
+            "name": "Python: git2zip test",
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/git2zip.py",
             "console": "integratedTerminal",
             "args": [
-                "--repository", "D:/CrowdStrike/private/PLATFORMPG-45938",
-                "--branch", "feature/PLATFORMPG-45938",
-                "--num-commits", "4",
-                "--archive", "D:/CrowdStrike/private/PLATFORMPG-45938.zip",
+                "--repository", "D:/play/git2zip",
+                "--branch", "master",
+                "--num-commits", "2",
+                "--archive", "D:/play/git2zip.zip",
             ]
         }
     ]
