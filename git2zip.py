@@ -25,18 +25,18 @@ import zipfile
 @click.option('-b', '--branch', default='main', help='Branch name', prompt=True)
 @click.option('-c', '--commits', default=1, help='Number of commits to archiive', prompt=True)
 @click.option('-a', '--archive', default='backup.zip', help='Path to .zip (archive) file', prompt=True)
-def main(repository, branch, num_commits, archive):
+def main(repository, branch, commits, archive):
     repo = git.Repo(path=repository, search_parent_directories=True)
     # get all of the commits on the branch
-    commits = list(repo.iter_commits(branch))
-    # filter out --num-commits in reverse cronological order
+    commits_list = list(repo.iter_commits(branch))
+    # filter out --commits in reverse cronological order
     # so newest files are first
-    commits = reversed(list(commits[:num_commits]))
+    commits_list = reversed(list(commits_list[:commits]))
     # list of files to prevent duplicates
     archived = set()
     with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as zip:
         # for each commit get the paths to the commited files
-        for commit in commits:
+        for commit in commits_list:
             for file in commit.stats.files.keys():
                 # skip duplicates
                 if file in archived: continue
